@@ -43,7 +43,7 @@ function getHomePageHTML(host) {
             padding: 0.5rem 1rem;
             display: flex;
         ">
-            <pre style="margin: 0;">npm config set registry http://${host}/</pre>
+            <pre style="margin: 0;">npm config set registry https://${host}/</pre>
         </div>
 
         <!-- 回复 -->
