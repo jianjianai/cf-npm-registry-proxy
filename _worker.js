@@ -1,6 +1,6 @@
 
-function getHomePageHTML(host){
-return `<!DOCTYPE html>
+function getHomePageHTML(host) {
+    return `<!DOCTYPE html>
 <html lang="zh-cn">
 
 <head>
@@ -66,19 +66,19 @@ return `<!DOCTYPE html>
 
 
 export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    if(url.pathname == "/"){
-      return new Response(getHomePageHTML(url.hostname),{
-        headers:{
-          "content-type":"text/html;charset=utf-8"
+    async fetch(request, env, ctx) {
+        const url = new URL(request.url);
+        if (url.pathname == "/") {
+            return new Response(getHomePageHTML(url.hostname), {
+                headers: {
+                    "content-type": "text/html;charset=utf-8"
+                }
+            });
         }
-      });
-    }
-    if(url.protocol=="http:"){
-        url.protocol = "https:";
-    }
-    url.hostname = "registry.npmjs.org";
-    return fetch(url,request);
-  },
+        if (url.protocol == "http:") {
+            url.protocol = "https:";
+        }
+        url.hostname = "registry.npmjs.org";
+        return fetch(url, request);
+    },
 };
